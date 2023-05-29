@@ -9,6 +9,31 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//mongoose
+
+var mongoose = require("mongoose");
+var uri = "mongodb+srv://hoanglmgch210529:hoanghoang@cluster0.ptn5ovz.mongodb.net/demo2";
+mongoose.connect(uri)
+.then(() => console.log ("Connect to DB succeed !"))
+.catch((err) => console.log (err));
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//bodyparser
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -37,5 +62,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var port = process.env.PORT || 3001;
+app.listen(port);
 
 module.exports = app;

@@ -1,0 +1,40 @@
+
+    <table class="table table-success text-center">
+       <tr class="">
+        <th class="h2 text-danger" colspan="4">ACTOR LIST</th>
+        <th>
+            <a class="btn btn-secondary" href="/add" >ADD</a>
+             <a class="btn btn-primary" href="/drop" onclick="return confirm('xao toan bo ok?')">Drop</a>
+        </th>
+       </tr>
+            <tr class="h4 text-primary">
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Country</th>
+                <th scope="col">Live In</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        {{#each actors}}
+        
+            <tr class="h6">
+                
+                <td>{{name}}</td>
+                <td>{{age}}</td>
+                <td>{{country}}</td>
+                <td>{{liveIn}}</td>
+                <td> 
+                    <a class="btn btn-secondary" href="/detail/{{_id}}"><img src="{{Img}}" style="width:150px;height:200px"></a>
+                </td>
+              <td>
+                    <a class="btn btn-secondary" href="/add" >EDIT</a>
+                    <a class="btn btn-secondary" href="/add" >DELETE</a>
+            </tr>
+            <tr>
+                  
+
+                </td>
+            </tr>
+       {{/each}}
+    </table>
+
